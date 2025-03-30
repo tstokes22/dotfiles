@@ -107,6 +107,7 @@ tooltip {
 }
 
 #temperature {
+  color: #D3D3D3;
   border-radius: 7px 0px 0px 7px;
 }
 

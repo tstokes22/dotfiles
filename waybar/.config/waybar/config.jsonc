@@ -7,21 +7,40 @@
     "passthrough": false,
     "gtk-layer-shell": true,
     "height": 33,
+
     "modules-left": ["sway/workspaces"],
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10"
+        },
+        "on-click": "activate",
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        }
+    },
+
     "modules-center": ["mpris"],
     "modules-right": ["temperature","cpu", "memory", "pulseaudio","pulseaudio#microphone", "bluetooth", "clock", "tray"],
     "hyprland/window": {
         "format": "{}"
     },
 
-    "sway/workspaces": {
-        "disable-scroll": true,
-        "format": "{icon}",
-        "format-icons": {"1":"1", "2" : "2", "3": "3", "4": "4","5": "5", "6": "6", "7": "7","8": "8","9": "9", "10": "10"},
-        "all-outputs": true,
-        "on-click": "activate"
-    },
-    
     "tray": {
         "icon-size": 18,
         "spacing": 10,
@@ -31,10 +50,10 @@
 
     "temperature": {
 	// "thermal-zone": 2,
-	 "hwmon-path": ["/sys/class/hwmon/hwmon2/temp1_input"],
+	 "hwmon-path": ["/sys/class/hwmon/hwmon4/temp1_input"],
 	// "critical-threshold": 80,
 	// "format-critical": "{temperatureC}°C ",
-	"format": "{temperatureC}°C "
+	"format": " {temperatureC}°C"
     },
 
     "cpu" : {

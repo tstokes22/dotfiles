@@ -48,40 +48,36 @@ output * bg ~/.config/sway/mima-1440.png fill
 # Example configuration:
 #
 
-#exec swayidle -w \
-#   timeout 900 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+exec swayidle -w \
+	timeout 3600 'swaylock -f' \
+	timeout 3605 'swaymsg "output * power off"' \
+		resume 'swaymsg "output * power on"'
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
-### Autostart
-
 # Notification start
 
 exec $alert &
 
-
-# Autostart Discord on workspace 5, with a delay to ensure Sway is ready
-#exec --no-startup-id pgrep -x discord > /dev/null || (sleep 5 && swaymsg "workspace 5; exec discord")
-
-# Autostart Moonlight-qt on workspace 3, with a delay to ensure Sway is ready
-#exec --no-startup-id pgrep -x moonlight-qt > /dev/null || (sleep 10 && swaymsg "workspace 3; exec flatpak run com.moonlight_stream.Moonlight")
-
-# Ensure workspace 1 is selected after all other autostart commands are finished.
-#exec --no-startup-id swaymsg "workspace 1"
+### Autostart ###
 
 # Autostart Discord with a delay, without switching to workspace 5
-exec --no-startup-id pgrep -x discord > /dev/null || (sleep 2 && exec discord)
+exec --no-startup-id pgrep -x vesktop > /dev/null || (sleep 2 && exec vesktop)
 
-exec --no-startup-id pgrep -x moonlight > /dev/null || (sleep 2 && exec moonlight)
+exec --no-startup-id pgrep -x moonlight > /dev/null || (sleep 4 && exec moonlight)
 
-
-# Move Discord to workspace 5 once it's launched
-for_window [class="discord"] move to workspace 5
+exec --no-startup-id pgrep -x "youtube-music" > /dev/null || (sleep 6 && exec youtube-music)
 
 # Move Moonlight-qt to workspace 3 once it's launched
-for_window [class="moonlight"] move to workspace 3
+for_window [class="Moonlight"] move to workspace 3
+
+# Move Discord to workspace 5 once it's launched
+for_window [app_id="vesktop"] move to workspace 4
+
+# Move Youtube-music to workspace 3, once it has launched
+for_window [class="com.github.th_ch.youtube_music"] move to workspace 5 
 
 
 ### Input configuration
@@ -100,24 +96,23 @@ for_window [class="moonlight"] move to workspace 3
 
 ### Appearance
 
-
-    client.focused #00BFFF #00BFFF #000000 #00BFFF
+    client.focused #89b4fa #89b4fa #000000 #89b4fa
 
     # Set the default border style (thin, rounded)
     default_border pixel 3
     default_floating_border pixel 3
 
-
     # Titlebar settings (disable if you want)
     titlebar_padding 4
     titlebar_border_thickness 2
 
-    # Remove titlebars for tiled windows
-    for_window [class=".*"] titlebar off
+    # Remove titlebars for tiled windows and disable urgent
+    for_window [class=".*"] titlebar off, urgent disable
 
+    # Add floating to pavucontrol
     for_window [app_id="org.pulseaudio.pavucontrol"] floating enable, move position 2025 0
+    # Add floating to blueman-manager
     for_window [app_id="blueman-manager"] floating enable, move position 1930 0, resize set 400 400
-
 
 ### Key bindings
 #
@@ -142,7 +137,7 @@ for_window [class="moonlight"] move to workspace 3
     # Reload the configuration file
     bindsym $mod+Shift+c reload
 
-    bindsym $mod+m exec ~/.config/sway/scripts/power_menu.sh
+    bindsym $mod+m exec ~/dotfiles/fuzzel/.config/fuzzel/scripts/power-menu.sh
 
     # Reload waybar
     bindsym $mod+Shift+r exec pkill $bar; $bar &
@@ -207,17 +202,20 @@ for_window [class="moonlight"] move to workspace 3
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
-    
+
     # Workspace 1 - 4 is on main display
     workspace 1 output DP-1
     workspace 2 output DP-1
     workspace 3 output DP-1
-    workspace 4 output DP-1
-    # Workspace 5 - 8 is on second display 
-    workspace 5 output HDMI-A-1
-    workspace 6 output HDMI-A-1
-    workspace 7 output HDMI-A-1
-    workspace 8 output HDMI-A-1
+
+    # Workspace 4 - 10 is on second display 
+    workspace 4  output  HDMI-A-1
+    workspace 5  output  HDMI-A-1
+    workspace 6  output  HDMI-A-1
+    workspace 7  output  HDMI-A-1
+    workspace 8  output  HDMI-A-1
+    workspace 9  output  HDMI-A-1
+    workspace 10 output  HDMI-A-1
 
 # Layout stuff:
 #
