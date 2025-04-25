@@ -48,10 +48,10 @@ output * bg ~/.config/sway/mima-1440.png fill
 # Example configuration:
 #
 
-exec swayidle -w \
-	timeout 3600 'swaylock -f' \
-	timeout 3605 'swaymsg "output * power off"' \
-		resume 'swaymsg "output * power on"'
+#exec swayidle -w \
+#	timeout 3600 'swaylock -f' \
+#	timeout 3605 'swaymsg "output * power off"' \
+#		resume 'swaymsg "output * power on"'
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -64,7 +64,7 @@ exec $alert &
 ### Autostart ###
 
 # Autostart Discord with a delay, without switching to workspace 5
-exec --no-startup-id pgrep -x vesktop > /dev/null || (sleep 2 && exec vesktop)
+exec --no-startup-id pgrep -x discord > /dev/null || (sleep 2 && exec discord)
 
 exec --no-startup-id pgrep -x moonlight > /dev/null || (sleep 4 && exec moonlight)
 
@@ -110,7 +110,7 @@ for_window [class="com.github.th_ch.youtube_music"] move to workspace 5
     for_window [class=".*"] titlebar off, urgent disable
 
     # Add floating to pavucontrol
-    for_window [app_id="org.pulseaudio.pavucontrol"] floating enable, move position 2025 0
+    for_window [app_id="org.pulseaudio.pavucontrol"] floating enable, move position  1875 100, resize set 800 600
     # Add floating to blueman-manager
     for_window [app_id="blueman-manager"] floating enable, move position 1930 0, resize set 400 400
 
