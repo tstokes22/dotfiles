@@ -24,7 +24,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term foot
+set $term ghostty
 # Your preferred application launcher
 set $menu fuzzel
 # Your preferred status bar
@@ -63,6 +63,7 @@ exec $alert &
 
 ### Autostart ###
 
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Autostart Discord with a delay, without switching to workspace 5
 exec --no-startup-id pgrep -x discord > /dev/null || (sleep 2 && exec discord)
 
