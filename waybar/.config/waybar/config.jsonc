@@ -165,7 +165,7 @@
         "paused": "\uf04c"
 
       },
-      "ignored-players": ["librewolf", "vlc", "firefox"]
+      "ignored-players": ["librewolf", "vlc"]
     },
      
     "mpd": {

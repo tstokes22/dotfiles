@@ -57,9 +57,14 @@ output * bg ~/.config/sway/mima-1440.png fill
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
+# ── Appearance ───────────────────────────────────────────────
+#
+
 # Notification start
 
 exec $alert &
+
+exec gammastep
 
 ### Autostart ###
 
@@ -75,10 +80,10 @@ exec --no-startup-id pgrep -x "youtube-music" > /dev/null || (sleep 6 && exec yo
 for_window [class="Moonlight"] move to workspace 3
 
 # Move Discord to workspace 5 once it's launched
-for_window [app_id="vesktop"] move to workspace 4
+for_window [class="discord"] move to workspace 4
 
 # Move Youtube-music to workspace 3, once it has launched
-for_window [class="com.github.th_ch.youtube_music"] move to workspace 5 
+#for_window [class="com.github.th_ch.youtube_music"] move to workspace 5 
 
 
 ### Input configuration
@@ -108,7 +113,7 @@ for_window [class="com.github.th_ch.youtube_music"] move to workspace 5
     titlebar_border_thickness 2
 
     # Remove titlebars for tiled windows and disable urgent
-    for_window [class=".*"] titlebar off, urgent disable
+    #for_window [class=".*"] titlebar off, urgent disable
 
     # Add floating to pavucontrol
     for_window [app_id="org.pulseaudio.pavucontrol"] floating enable, move position  1875 100, resize set 800 600
@@ -298,7 +303,7 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-	swaybar_command $bar   
+	swaybar_command $bar
 }
 
 include /etc/sway/config.d/*

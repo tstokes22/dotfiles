@@ -25,35 +25,34 @@ tooltip {
   padding: 5px;
   color: #313244;
   margin-right: 5px;
-  /* margin-left: 10px; */
+  /* Remove border-color here, as it implies a border even if style is none */
+  border: none; /* Add this line to explicitly remove any border */
 }
 
 #workspaces button.active {
   color: #89b4fa;
-  background: #1a1b26;
+  background: #222222;
 }
 
 #workspaces button.focused {
-  color: #707880;
-  background: #eba0ac;
+  color: #89b4fa;
+  background: #222222;
+  border: none; /* Make sure focused doesn't have a border either if you don't want it */
   border-radius: 7px;
 }
 
+/*
 #workspaces button.urgent {
   color: #11111b;
   background: #f28fad;
   border-radius: 7px;
   opacity: 0.5;
+}*/
+
+#workspaces button.hover {
+  color: #89affa
 }
 
-#workspaces button:hover {
-  background: #11111b;
-  color: #c0caf5;
-  border-radius: 17px;
-}
-
-/* #custom-power_profile, */
-/* #custom-weather, */
 
 #window,
 #clock,
