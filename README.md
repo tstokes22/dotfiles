@@ -5,7 +5,7 @@
 
 Personal dotfiles for Arch Linux + Hyprland.
 
-![Desktop Screenshot](.github/desktop.png)
+![Desktop Screenshot](/pictures/desktop.png)
 
 ## Stack
 
