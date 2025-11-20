@@ -1,7 +1,6 @@
 # dotfiles
 
 ![Arch Linux](https://img.shields.io/badge/Arch%20Linux-1793D1?style=flat&logo=arch-linux&logoColor=white)
-![Hyprland](https://img.shields.io/badge/Hyprland-58E1FF?style=flat&logo=wayland&logoColor=black)
 
 Personal dotfiles for Arch Linux + Sway.
 
